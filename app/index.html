@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="menu header__menu">
+        <a class="logo" href="#">
+          <picture>
+            <source srcset="images/logo.avif" type="image/avif">
+            <source srcset="images/logo.webp" type="image/webp">
+            <img src="images/logo.png" alt="Логотип">
+          </picture>
+          <noscript>
+            <img src="images/logo.png" alt="Логотип">
+          </noscript>
+        </a>
+        <ul class="menu__list">
+          <li class="menu__item">
+            <a class="menu__link menu__link--active" href="#">Головна</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">Страви</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">Контакти</a>
+          </li>
+          <li class="menu__item">
+            <div class="menu__icons">
+              <a class="search-icon icon--active" href="#">
+                <svg class="search-icon__svg" width="20.267" height="20.502" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="9.739" cy="9.634" rx="8.989" ry="8.884" stroke="#363853" stroke-width="1.5"
+                    stroke-linejoin="round" />
+                  <path d="M15.99 16.275l3.524 3.474" stroke="#363853" stroke-width="1.5" stroke-linejoin="round"
+                    stroke-linecap="round" />
+                </svg>
+                <span class="sr-only">Пошук</span>
+              </a>
+              <a class="cart-icon icon--active" href="#">
+                <svg width="20.001" height="19.333" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M.75.75l2.08.356.964 11.34c.077.926.86 1.637 1.8 1.634h10.909a1.794 1.794 0 001.785-1.528l.949-6.482a1.328 1.328 0 00-1.135-1.501c-.064-.01-14.937-.014-14.937-.014m8.961 3.653h2.773"
+                    stroke="#363853" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+                  <path
+                    d="M5.699 18.044c0 .298-.243.54-.544.54a.541.541 0 01-.544-.54.54.54 0 01.544-.538.54.54 0 01.544.538zm11.281 0c0 .298-.244.54-.545.54a.541.541 0 01-.544-.54.54.54 0 01.544-.538c.301 0 .545.242.545.538z"
+                    stroke="#363853" stroke-width="1.5" stroke-linejoin="round" />
+                </svg>
+                <span class="sr-only icon--active">Кошик</span>
+                <span class="cart-icon__num">4</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <script src="js/main.min.js"></script>
+</body>
+</html>

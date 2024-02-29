@@ -11,12 +11,10 @@
   const imagemin = require('gulp-imagemin');
   const newer = require('gulp-newer');
   const svgFilter = require('gulp-filter'); 
-  // чтобы фильтровать svg от gulp-avif
   const svgSprite = require('gulp-svg-sprite');
   const fonter = require('gulp-fonter');
   const ttf2woff2 = require('gulp-ttf2woff2');
   const plumber = require('gulp-plumber');
-  // пропускает ошибки при чтении шрифтов
   const include = require('gulp-include');
 
   function pages() {
@@ -76,8 +74,6 @@
   function scripts() {
     return src([
       'app/js/main.js'
-      // 'app/js/*.js',
-      // '!app/js/main.min.js',
     ])
       .pipe(concat('main.min.js'))
       .pipe(uglify())
@@ -111,10 +107,6 @@
     watch(['app/*.html']).on('change', browserSync.reload)
   }
 
-  // function browsersync() {
-
-  // }
-
   function cleanDist() {
     return src('dist')
       .pipe(clean())
@@ -141,7 +133,6 @@
   exports.sprite = sprite;
   exports.scripts = scripts;
   exports.watching = watching;
-  // exports.browsersync = browsersync;
 
   exports.build = series(cleanDist, building);
   exports.default = parallel(styles, images, scripts, pages, watching);

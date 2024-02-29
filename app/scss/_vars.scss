@@ -1,0 +1,24 @@
+$orange-900: #ff6838;
+$orange-700: rgba(255, 104, 56, 0.7);
+$orange-100: rgba(255, 104, 56, 0.1);
+$silver-200: #ececec;
+$gray: #c2c2c2;
+$darkBlue-900: #363853;
+$dark: #31352b;
+$silver-100: #f9faff;
+
+
+%rubik-400 {
+  font-family: 'Rubik-Regular', sans-serif;
+  font-weight: 400;
+}
+
+%rubik-500 {
+  font-family: 'Rubik-Medium', sans-serif;
+  font-weight: 500;
+}
+
+%rubik-italic {
+  font-family: 'Rubik-Italic', sans-serif;
+  font-weight: 400;
+}

@@ -3,7 +3,123 @@
 @import 'reset';
 @import 'global';
 
+.logo {
+  min-width: 200px;
+  min-height: 39px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  &:focus {
+    box-shadow: 0px 0px 0px 2px $orange-700;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+}
 
+.header__menu {
+  padding: 61px 5px 59px 5px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+  &__item:not(:last-child){
+    margin-right: 40px;
+  }
+  &__link {
+    transition: color 0.2s linear;
+    border-radius: 5px;
+    &:focus {
+      box-shadow: 0px 0px 0px 2px $orange-700;
+    }
+    &:hover {
+      color: $orange-900;
+    }
+    &:active {
+      box-shadow: none;
+      color: $dark;
+      text-shadow: 2px 2px 5px $dark;
+    }
+  }
+  &__link--active {
+    color: $orange-900;
+  }
+  &__icons {
+    display: flex;
+    padding-left: 20px;
+  }
+  &__icons a:not(:last-child) {
+    margin-right: 12px
+  }
+}
+
+.search-icon,
+.cart-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+}
+
+.cart-icon {
+  position: relative;
+  &__num {
+    position: absolute;
+    top: 9px;
+    right: 4px;
+    width: 14px;
+    height: 14px;
+    font-size: 10px;
+    background-color: $orange-900;
+    color:  #ffffff;
+    text-align: center;
+    border-radius: 50%;
+    transition: background-color 0.1s linear, color 0.1s linear;
+  }
+  &:hover .cart-icon__num{
+    background-color: #ffffff; 
+    color: $orange-900;
+  }
+}
+
+.icon--active {
+  svg {
+    fill: transparent;
+  }
+  svg *  {
+    transition: stroke 0.1s linear;
+  }
+  &:hover svg * {
+    stroke: #ffffff;
+  }
+  border-radius: 5px;
+  transition: background-color 0.1s linear;
+  &:focus{
+    box-shadow: 0 0 0 2px $orange-700;
+    background-color: $orange-100;
+  }
+  &:hover{
+    background-color: $orange-900;
+  }
+  &:active{
+    box-shadow: none;
+    background-color: $orange-100;
+  }
+  &:active svg * {
+    stroke: #363853;
+  }
+}
 
 
 @import 'media';
