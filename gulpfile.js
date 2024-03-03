@@ -39,18 +39,18 @@
   }
 
   function images() {
-    const filter = svgFilter(['**/*', '!app/images/src/*.svg'], { restore: true });
+    // const filter = svgFilter(['**/*', '!app/images/src/*.svg'], { restore: true });
 
     return src(['app/images/src/*.*', '!app/images/src'])
-      .pipe(newer('app/images'))
-      .pipe(filter)
-      .pipe(avif({ quality: 50 }))
+      // .pipe(newer('app/images'))
+      // .pipe(filter)
+      // .pipe(avif({ quality: 50 }))
 
-      .pipe(src('app/images/src/*.*'))
-      .pipe(newer('app/images'))
-      .pipe(webp())
+      // .pipe(src('app/images/src/*.*'))
+      // .pipe(newer('app/images'))
+      // .pipe(webp())
 
-      .pipe(filter.restore)
+      // .pipe(filter.restore)
       .pipe(src('app/images/src/*.*'))
       .pipe(newer('app/images'))
       .pipe(imagemin())
@@ -73,6 +73,8 @@
 
   function scripts() {
     return src([
+      'node_modules/jquery/dist/jquery.js',
+      'node_modules/mixitup/dist/mixitup.js',
       'app/js/main.js'
     ])
       .pipe(concat('main.min.js'))
