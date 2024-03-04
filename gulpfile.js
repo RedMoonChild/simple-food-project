@@ -11,12 +11,10 @@
   const imagemin = require('gulp-imagemin');
   const newer = require('gulp-newer');
   const svgFilter = require('gulp-filter'); 
-  // чтобы фильтровать svg от gulp-avif
   const svgSprite = require('gulp-svg-sprite');
   const fonter = require('gulp-fonter');
   const ttf2woff2 = require('gulp-ttf2woff2');
   const plumber = require('gulp-plumber');
-  // пропускает ошибки при чтении шрифтов
   const include = require('gulp-include');
 
   function pages() {
@@ -41,18 +39,18 @@
   }
 
   function images() {
-    const filter = svgFilter(['**/*', '!app/images/src/*.svg'], { restore: true });
+    // const filter = svgFilter(['**/*', '!app/images/src/*.svg'], { restore: true });
 
     return src(['app/images/src/*.*', '!app/images/src'])
-      .pipe(newer('app/images'))
-      .pipe(filter)
-      .pipe(avif({ quality: 50 }))
+      // .pipe(newer('app/images'))
+      // .pipe(filter)
+      // .pipe(avif({ quality: 50 }))
 
-      .pipe(src('app/images/src/*.*'))
-      .pipe(newer('app/images'))
-      .pipe(webp())
+      // .pipe(src('app/images/src/*.*'))
+      // .pipe(newer('app/images'))
+      // .pipe(webp())
 
-      .pipe(filter.restore)
+      // .pipe(filter.restore)
       .pipe(src('app/images/src/*.*'))
       .pipe(newer('app/images'))
       .pipe(imagemin())
@@ -75,9 +73,9 @@
 
   function scripts() {
     return src([
+      'node_modules/jquery/dist/jquery.js',
+      'node_modules/mixitup/dist/mixitup.js',
       'app/js/main.js'
-      // 'app/js/*.js',
-      // '!app/js/main.min.js',
     ])
       .pipe(concat('main.min.js'))
       .pipe(uglify())
@@ -111,10 +109,6 @@
     watch(['app/*.html']).on('change', browserSync.reload)
   }
 
-  // function browsersync() {
-
-  // }
-
   function cleanDist() {
     return src('dist')
       .pipe(clean())
@@ -141,7 +135,6 @@
   exports.sprite = sprite;
   exports.scripts = scripts;
   exports.watching = watching;
-  // exports.browsersync = browsersync;
 
   exports.build = series(cleanDist, building);
   exports.default = parallel(styles, images, scripts, pages, watching);
