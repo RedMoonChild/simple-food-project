@@ -226,6 +226,11 @@
       z-index: 0;
     }
   }
+  .mixitup-control-active {
+    border-radius: 5px
+    background-color: $orange-900;
+    color: #ffffff;
+  }
   &__menu-item,
   &__dishes-item {
     border-radius: 5px;
