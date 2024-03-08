@@ -11,7 +11,10 @@
   const imagemin = require('gulp-imagemin');
   const newer = require('gulp-newer');
   const svgFilter = require('gulp-filter'); 
+  const gulpif = require('gulp-if');
   const svgSprite = require('gulp-svg-sprite');
+  const cheerio = require('gulp-cheerio');
+  const replace = require('gulp-replace');
   const fonter = require('gulp-fonter');
   const ttf2woff2 = require('gulp-ttf2woff2');
   const plumber = require('gulp-plumber');
@@ -39,18 +42,14 @@
   }
 
   function images() {
-    // const filter = svgFilter(['**/*', '!app/images/src/*.svg'], { restore: true });
-
     return src(['app/images/src/*.*', '!app/images/src'])
-      // .pipe(newer('app/images'))
-      // .pipe(filter)
-      // .pipe(avif({ quality: 50 }))
+      .pipe(newer('app/images'))
+      .pipe(avif({ quality: 50 }))
 
-      // .pipe(src('app/images/src/*.*'))
-      // .pipe(newer('app/images'))
-      // .pipe(webp())
+      .pipe(src('app/images/src/*.*'))
+      .pipe(newer('app/images'))
+      .pipe(webp())
 
-      // .pipe(filter.restore)
       .pipe(src('app/images/src/*.*'))
       .pipe(newer('app/images'))
       .pipe(imagemin())
@@ -58,17 +57,46 @@
       .pipe(dest('app/images'))
   }
 
+  // function images() {
+  //   return src(['app/images/src/*.{jpg,jpeg,png}', '!app/images/src/*.svg'])
+  //     .pipe(newer('app/images/avif'))
+  //     .pipe(avif({ quality: 50 }))
+  //     .pipe(dest('app/images/avif'))
+  //     .pipe(src(['app/images/src/*.{jpg,jpeg,png}', '!app/images/avif/*.avif']))
+  //     .pipe(newer('app/images/webp'))
+  //     .pipe(webp())
+  //     .pipe(dest('app/images/webp'))
+
+  //     .pipe(src(['app/images/src/*.png', '!app/images/src/*.svg']))
+  //     .pipe(imagemin())
+  //     .pipe(newer('app/images/webp'))
+  //     .pipe(newer('app/images/avif'))
+  //     .pipe(dest('app/images/minified'));
+  // }
+
   function sprite() {
-    return src('app/images/*.svg')
-      .pipe(svgSprite({
-        mode: {
-          stack: {
-            sprite: '../sprite.svg',
-            example: true
-          }
-        } 
-      }))
-      .pipe(dest('app/images'))
+    return src('app/images/icons/*.svg') 
+    .pipe(cheerio({
+          run: ($) => {
+              $("[fill]").removeAttr("fill"); 
+              $("[stroke]").removeAttr("stroke"); 
+              $("[style]").removeAttr("style"); 
+          },
+          parserOptions: { xmlMode: true },
+        })
+    )
+    .pipe(replace('&gt;','>')) // боремся с заменой символа 
+    .pipe(
+          svgSprite({
+            mode: {
+              stack: {
+                sprite: '../sprite.svg', 
+                example: true
+              },
+            },
+          })
+        )
+    .pipe(dest('app/images')); 
   }
 
   function scripts() {
