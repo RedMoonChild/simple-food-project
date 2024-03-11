@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleFood</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  @include('components/_header.html')
+  <main class="main">
+    <section class="hero container">
+      <div class="hero-content">
+        <h1 class="hero-content__title">
+          <span>Доставка</span>
+          <span>за 15 ХВИЛИН</span>
+        </h1>
+        <p class="hero-content__text">
+          Найшвидший сервіс доставки їжі у вашому місті. Якщо запізнемось - то доставка за наш рахунок
+        </p>
+        <div class="hero-content__buttons">
+          <button class="hero-content__order-button btn" type="button">
+            Замовити
+          </button>
+          <button class="hero-content__details-button details-state" type="button">
+            Детальніше
+          </button>
+        </div>
+      </div>
+      <picture width="560" height="660">
+        <source srcset="images/hero-bg.avif" type="image/avif">
+        <source srcset="images/hero-bg.webp" type="image/webp">
+        <img class="hero__img" src="images/hero-bg.png" alt="Приязливий курьер">
+      </picture>
+      <noscript>
+        <img src="images/hero-bg.png" alt="Приязливий курьер">
+      </noscript> 
+    </section>
+
+    <section class="categories section">
+      <div class="container">
+        <h2 class="categories__title title">
+          Популярне в категоріях
+        </h2>
+        <ul class="categories__menu">
+          <li class="categories__menu-item">
+            <button class="categories__menu-link" href="#" type="button" data-filter="all">
+              Бургери
+            </button>
+            <svg class="svg-burger-dims svg-color">
+              <use xlink:href="images/sprite/sprite.svg#burger"></use>
+            </svg>
+          </li>
+          <li class="categories__menu-item">
+            <button class="categories__menu-link" href="#" type="button" data-filter=".pizza">
+              Піца
+            </button>
+            <svg class="svg-pizza-dims">
+              <use xlink:href="images/sprite/sprite.svg#pizza"></use>
+            </svg>
+          </li>
+          <li class="categories__menu-item">
+            <button class="categories__menu-link" href="#" type="button" data-filter=".sandwich">
+              Сендвічі
+            </button>
+            <svg class="svg-sandwich-dims svg-color">
+              <use xlink:href="images/sprite/sprite.svg#sandwich"></use>
+            </svg>
+          </li>
+          <li class="categories__menu-item">
+            <button class="categories__menu-link" href="#" type="button" data-filter=".asia">
+              Азійська кухня
+            </button>
+            <svg class="svg-asia-dims svg-color">
+              <use xlink:href="images/sprite/sprite.svg#asia"></use>
+            </svg>
+          </li>
+          <li class="categories__menu-item">
+            <button class="categories__menu-link" href="#" type="button" data-filter=".dish">
+              Cети
+            </button>
+            <svg class="svg-dish-dims svg-color">
+              <use xlink:href="images/sprite/sprite.svg#dish"></use>
+            </svg>
+          </li>
+        </ul>
+        <div class="categories__dishes">
+          <a class="categories__dishes-item mix burger" style="background-image: url('../images/dishes1.png');"
+            href="#">
+            <h4 class="categories__dishes-title">Чізбургер з листям салату</h4>
+            <span class="categories__dishes-cost">160 грн.</span>
+            <button class="categories__dishes-btn btn">До кошика</button>
+          </a>
+          <a class="categories__dishes-item mix burger" style="background-image: url('../images/dishes2.png');"
+            href="#">
+            <h4 class="categories__dishes-title">Біфбургер</h4>
+            <span class="categories__dishes-cost">190 грн.</span>
+            <button class="categories__dishes-btn btn">До кошика</button>
+          </a>
+          <a class="categories__dishes-item mix pizza" style="background-image: url('../images/dishes3.png');" href="#">
+            <h4 class="categories__dishes-title">Королівський чізбургер</h4>
+            <span class="categories__dishes-cost">260 грн.</span>
+            <button class="categories__dishes-btn btn">До кошика</button>
+          </a>
+          <a class="categories__dishes-item mix burger" style="background-image: url('../images/dishes4.png');"
+            href="#">
+            <h4 class="categories__dishes-title">Королівський чізбургер</h4>
+            <span class="categories__dishes-cost">199 грн.</span>
+            <button class="categories__dishes-btn btn">До кошика</button>
+          </a>
+          <a class="categories__dishes-item mix sandwich" style="background-image: url('../images/dishes5.png');"
+            href="#">
+            <h4 class="categories__dishes-title">Чікен бургер</h4>
+            <span class="categories__dishes-cost">180 грн.</span>
+            <button class="categories__dishes-btn btn">До кошика</button>
+          </a>
+          <a class="categories__dishes-item mix burger" style="background-image: url('../images/dishes1.png');"
+            href="#">
+            <h4 class="categories__dishes-title">Чізбургер з листям салату</h4>
+            <span class="categories__dishes-cost">160 грн.</span>
+            <button class="categories__dishes-btn btn">До кошика</button>
+          </a>
+          <a class="categories__dishes-item mix burger" style="background-image: url('../images/dishes2.png');"
+            href="#">
+            <h4 class="categories__dishes-title">Біфбургер</h4>
+            <span class="categories__dishes-cost">190 грн.</span>
+            <button class="categories__dishes-btn btn">До кошика</button>
+          </a>
+          <a class="categories__dishes-item mix burger" style="background-image: url('../images/dishes3.png');"
+            href="#">
+            <h4 class="categories__dishes-title">Біфбургер</h4>
+            <span class="categories__dishes-cost">260 грн.</span>
+            <button class="categories__dishes-btn btn">До кошика</button>
+          </a>
+          <a class="categories__dishes-item mix burger" style="background-image: url('../images/dishes4.png');"
+            href="#">
+            <h4 class="categories__dishes-title">Чорний гамбургер</h4>
+            <span class="categories__dishes-cost">199 грн.</span>
+            <button class="categories__dishes-btn btn">До кошика</button>
+          </a>
+          <a class="categories__dishes-item mix burger" style="background-image: url('../images/dishes5.png');"
+            href="#">
+            <h4 class="categories__dishes-title">Чікен бургер</h4>
+            <span class="categories__dishes-cost">180 грн.</span>
+            <button class="categories__dishes-btn btn">До кошика</button>
+          </a>
+        </div>
+        <button class="categories__details-button details-state" type="button">
+          Показати ще
+        </button>
+      </div>
+    </section>
+
+    <section class="section delivery">
+      <div class="container delivery__container">
+        <div class="delivery__inner">
+          <h2 class="delivery__title title">Залишайтеся вдома, а ми
+            потурбуємося про їжу
+          </h2>
+          <p class="delivery__text">
+            У нас є смачна їжа і ми готові доставити її до вас додому! Скористайтеся нашою доставкою прямо зараз та
+            отримайте знижку!
+          </p>
+          <ul class="delivery__benefits">
+            <li class="delivery__benefits-item delivery__benefits-item--timer">
+              Швидка доставка за 15 хвилин
+            </li>
+            <li class="delivery__benefits-item delivery__benefits-item--delivery">
+              Чемні кур’єри
+            </li>
+            <li class="delivery__benefits-item delivery__benefits-item--restaurant">
+              Більше 500 закладів
+            </li>
+          </ul>
+          <button class="btn">
+            Детальніше
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="restaurants section">
+      <div class="container">
+        <h2 class="title">
+          Найкращі ресторани
+        </h2>
+        <ul class="restaurants__list">
+          <li class="restaurants__item">
+            <article class="restaurant-block">
+              <img class="restaurant-block__img" src="images/resto_1.jpeg" alt="ресторан Blaze Pizza">
+              <div class="restaurant-block__content">
+                <h3 class="restaurant-block__title">Blaze Pizza</h3>
+                <time class="restaurant-block__work-time">11:00 - 22:00</time>
+                <a class="restaurant-block__link icon--button" href="#"></a>
+              </div>
+            </article>
+          </li>
+          <li class="restaurants__item">
+            <article class="restaurant-block">
+              <img class="restaurant-block__img" src="images/resto_2.jpeg" alt="ресторан Pizza Runcho">
+              <div class="restaurant-block__content">
+                <h3 class="restaurant-block__title">Pizza Runcho</h3>
+                <time class="restaurant-block__work-time">12:00 - 21:00</time>
+                <a class="restaurant-block__link icon--button" href="#"></a>
+              </div>
+            </article>
+          </li>
+          <li class="restaurants__item">
+            <article class="restaurant-block">
+              <img class="restaurant-block__img" src="images/resto_3.jpeg" alt="ресторан Pizza Hut">
+              <div class="restaurant-block__content">
+                <h3 class="restaurant-block__title">Pizza Hut</h3>
+                <time class="restaurant-block__work-time">11:00 - 22:00</time>
+                <a class="btn restaurant-block__link icon--button" href="#"></a>
+              </div>
+            </article>
+          </li>
+          <li class="restaurants__item">
+            <article class="restaurant-block">
+              <img class="restaurant-block__img" src="images/resto_4.jpeg" alt="ресторан McDonald`s">
+              <div class="restaurant-block__content">
+                <h3 class="restaurant-block__title">McDonald`s</h3>
+                <time class="restaurant-block__work-time">06:00 - 23:00</time>
+                <a class="restaurant-block__link icon--button" href="#"></a>
+              </div>
+            </article>
+          </li>
+          <li class="restaurants__item">
+            <article class="restaurant-block">
+              <img class="restaurant-block__img" src="images/resto_5.jpeg" alt="ресторан KFC">
+              <div class="restaurant-block__content">
+                <h3 class="restaurant-block__title">KFC</h3>
+                <time class="restaurant-block__work-time">06:00 - 23:30</time>
+                <a class="restaurant-block__link icon--button" href="#"></a>
+              </div>
+            </article>
+          </li>
+          <li class="restaurants__item">
+            <article class="restaurant-block">
+              <img class="restaurant-block__img" src="images/resto_6.jpeg" alt="ресторан Star Burgers">
+              <div class="restaurant-block__content">
+                <h3 class="restaurant-block__title">Star Burgers</h3>
+                <time class="restaurant-block__work-time">09:00 - 21:00</time>
+                <a class="restaurant-block__link icon--button" href="#"></a>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="review section">
+      <div class="container">
+        <h2 class="title">Відгуки клієнтів</h2>
+        <div class="review__inner">
+          <img class="review__img" src="images/client-avatar.jpeg" alt="Аватарка Користувача додатком" width="300" height="300">
+          <blockquote class="quote review__quote">
+            <p class="quote__text">SimpleFood - одна з найкращих служб доставки продуктів з ресторанів у місті. Дуже зручний сайт та
+              застосунок. Їхні доставники дуже ввічливі та пунктуальні. Компанія часто проводить акції та дарує знижки на
+              доставку - однозначно рекомендую!</p>
+            <cite class="quote__author">Дарина</cite>
+            <span class="quote__occupation">Поціновувачка смачної їжі</span>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="application section">
+      <div class="container">
+        <div class="application__content">
+          <h2 class="application__title title">Завантажте мобільний
+            застосунок
+          </h2>
+          <p class="application__text">
+            Ресторани, які ви любите - у ваших руках. Встановлюйте застосунок та замовляйте їжу в зручному місці в
+            зручний час
+          </p>
+          <div class="application__links">
+            <a class="app-store" href="#"
+              style="background-image: url('../images/apple-link.png'); width: 120px; height: 40px;"></a>
+            <a class="google-store" href="#"
+              style="background-image: url('../images/google-link.png'); width: 135px; height: 40px;"></a>
+          </div>
+        </div>
+        <picture class="application__picture">
+          <source srcset="images/app-img.avif" type="image/avif" width="570" height="380">
+          <source srcset="images/app-img.webp" type="image/webp" width="570" height="380">
+          <img src="images/app-img.png" alt="Додаток на телефоні на фоні з їжею" width="570" height="380">
+        </picture>
+        <noscript>
+          <img src="images/app-img.png" alt="Додаток на телефоні на фоні з їжею" width="570" height="380">
+        </noscript> 
+      </div>
+    </section>
+  </main>
+  @include('components/_footer.html')
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
