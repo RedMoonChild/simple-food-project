@@ -6,19 +6,91 @@ $gray: #c2c2c2;
 $darkBlue-900: #363853;
 $dark: #31352b;
 $silver-100: #f9faff;
-
+$border-color: rgb(194, 194, 194);
+$white: #ffffff;
+$white-transparent: rgba(255, 255, 255, 0.1);
+$inset-color: rgba(255, 104, 56, 0.2);
 
 %rubik-400 {
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 400;
+  font-style: normal;
 }
 
 %rubik-500 {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
+  font-style: normal;
 }
 
 %rubik-italic {
-  font-family: 'Rubik-Italic', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 400;
+  font-style: italic;
+}
+
+%d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%bg-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+%focus-state-orange {
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px $orange-700;
+  background-color: $orange-100;
+  color: $orange-900;
+}
+
+%focus-state-white {
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px 2px $orange-700;
+  background-color: $white;
+}
+
+%hover-state-white {
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px 2px $orange-700;
+  background-color: $white;
+  color: $orange-900;
+}
+
+%hover-state-orange {
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px $orange-700,
+    0 5px 12px 0 $orange-100;
+  background-color: $white-transparent;
+  color: $orange-900;
+}
+
+%active-state-nonshadow {
+  border-radius: 5px;
+  box-shadow: none;
+  background-color: $orange-100;
+  color: $orange-900;
+}
+
+%active-state-shadow-inside {
+  border-radius: 5px;
+  box-shadow: inset 0 -5px 12px 0 $inset-color;
+  background: $white;
+}
+
+%active-state-text-shadow {
+  box-shadow: none;
+  color: $darkBlue-900;
+  text-shadow: 2px 2px 5px $dark;
+}
+
+%states-transition {
+  transition: box-shadow 0.3s ease,
+    background-color 0.3s ease, color 0.3s ease,
+    border-radius 0.3s ease, text-shadow 0.3s ease,
+    transform 0.3s ease, filter 0.1s linear;
 }

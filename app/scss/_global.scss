@@ -5,9 +5,10 @@ body {
   font-size: 20px;
   line-height: 1.5;
   font-weight: 400;
-  background: rgb(249, 250, 255);
+  background-color: $silver-100;
   color: $dark;
-  @extend %rubik-400;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
 }
 
 .container {
@@ -35,31 +36,36 @@ body {
 
 .title {
   text-align: center;
-  padding-bottom: 60px;
+  margin-bottom: 60px;
   color: $darkBlue-900;
   font-size: 36px;
 }
 
 .btn {
-  padding: 7px 14px;
+  padding: 12px 32px;
   background-color: $orange-900;
   border-radius: 6px;
   font-family: Rubik;
   font-size: 18px;
   line-height: 1;
   letter-spacing: 1px;
-  color: #ffffff;
-  transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  color: $white;
+  transition: box-shadow 0.3s ease,
+    background-color 0.3s ease, color 0.3s ease;
+
   &:focus {
     box-shadow: 0 0 0 2px $orange-700;
     background-color: $orange-100;
     color: $orange-900;
   }
+
   &:hover {
-    box-shadow: 0 0 0 2px $orange-700, 0 5px 12px 0 $orange-100;
-    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px $orange-700,
+      0 5px 12px 0 $orange-100;
+    background-color: $white-transparent;
     color: $orange-900;
   }
+
   &:active {
     box-shadow: none;
     background-color: $orange-100;
@@ -67,48 +73,107 @@ body {
   }
 }
 
-.details-button {
+.icon--button {
+  padding: 12px 32px;
+  background-color: $orange-900;
+  border-radius: 20px;
+  line-height: 1;
+}
+
+.details-state {
   position: relative;
   z-index: 0;
   color: $darkBlue-900;
   border-radius: 5px;
-  transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease,
+    background-color 0.3s ease, color 0.3s ease,
+    text-shadow 0.3s ease;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $dark;
+    z-index: 1;
+    transition: all 0.3s ease;
+    opacity: 1;
+  }
+
   &:focus {
     box-shadow: 0 0 0 2px $orange-700;
+    &::before {
+      opacity: 0;
+    }
   }
+
   &:hover {
     color: $orange-900;
+    &::before {
+      opacity: 0;
+    }
   }
+
   &:active {
     box-shadow: none;
     color: $darkBlue-900;
     text-shadow: 2px 2px 5px $dark;
+    &::before {
+      opacity: 0;
+    }
   }
-  &:focus::before {
-    opacity: 0;
-  }
-  &:hover::before {
-    opacity: 0;
-  }
-  &:active::before {
-    opacity: 0;
-  }
-}
-
-.details-button::before  {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 7px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: $dark;
-  z-index: 1;
-  transition: all 0.3s ease;
-  opacity: 1;
 }
 
 .section {
-  padding-bottom: 120px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.email-input {
+  padding: 13px 15px;
+  font-size: 14px;
+  line-height: 1.3;
+  border-radius: 5px;
+  border: 1px solid $border-color;
+  background-color: #ffffff;
+  color: $darkBlue-900;
+  @extend %rubik-400;
+
+  &::placeholder {
+    color: rgb(194, 194, 194);
+  }
+}
+
+.icon-button {
+  position: relative;
+  padding: 13px 37px 13px 73px;
+  @extend %rubik-500;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 19%;
+    top: 50%;
+    width: 16px;
+    height: 15px;
+    transform: translateY(-50%);
+    background-image: url('../images/sprite/sprite.svg#telegram');
+    filter: invert(100%) sepia(66%) saturate(403%) hue-rotate(232deg) brightness(113%) contrast(100%);
+    @extend %bg-image, %states-transition; 
+  }
+  &:focus::before {
+    filter: invert(48%) sepia(67%) saturate(901%) hue-rotate(332deg) brightness(98%) contrast(109%);
+  }
+  &:hover::before {
+    filter: invert(48%) sepia(67%) saturate(901%) hue-rotate(332deg) brightness(98%) contrast(109%);
+  }
+  &:active::before {
+    filter: invert(48%) sepia(67%) saturate(901%) hue-rotate(332deg) brightness(98%) contrast(109%);
+  }
 }

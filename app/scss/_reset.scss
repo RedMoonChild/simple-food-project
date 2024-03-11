@@ -48,7 +48,7 @@ a {
 
 input {
   padding: 0;
-  margin: 0;
+  margin: 0; 
 }
 
 a,
@@ -57,12 +57,11 @@ button,
 textarea,
 select {
   font: inherit;
-  cursor: pointer;
   outline: transparent;
 }
 
 address {
-  font: inherit;
+  font: normal;
 }
 
 button {
