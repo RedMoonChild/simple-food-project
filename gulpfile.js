@@ -68,23 +68,6 @@
       .pipe(dest('app/images'))
   }
 
-  // function images() {
-  //   return src(['app/images/src/*.{jpg,jpeg,png}', '!app/images/src/*.svg'])
-  //     .pipe(newer('app/images/avif'))
-  //     .pipe(avif({ quality: 50 }))
-  //     .pipe(dest('app/images/avif'))
-  //     .pipe(src(['app/images/src/*.{jpg,jpeg,png}', '!app/images/avif/*.avif']))
-  //     .pipe(newer('app/images/webp'))
-  //     .pipe(webp())
-  //     .pipe(dest('app/images/webp'))
-
-  //     .pipe(src(['app/images/src/*.png', '!app/images/src/*.svg']))
-  //     .pipe(imagemin())
-  //     .pipe(newer('app/images/webp'))
-  //     .pipe(newer('app/images/avif'))
-  //     .pipe(dest('app/images/minified'));
-  // }
-
   function sprite() {
     return src('app/images/icons/*.svg') 
     .pipe(cheerio({
@@ -114,6 +97,7 @@
     return src([
       'node_modules/jquery/dist/jquery.js',
       'node_modules/mixitup/dist/mixitup.js',
+      'node_modules/slick-carousel/slick/slick.js',
       'app/js/main.js'
     ])
       .pipe(concat('main.min.js'))
@@ -162,22 +146,10 @@
       'app/images/sprite.svg',
       'app/fonts/*.*',
       'app/js/main.min.js'
+      // 'app/pages/*.html'
     ], {base: 'app'})
       .pipe(dest('dist'))
   }
-
-  // function building() {
-  //   return src([
-  //     'app/css/style.min.css',
-  //     'app/images/*.*',
-  //     '!app/images/*.svg',
-  //     'app/images/sprite.svg',
-  //     'app/fonts/*.*',
-  //     'app/js/main.min.js',
-  //     'app/pages/*.html'
-  //   ], {base: 'app'})
-  //     .pipe(dest('dist'))
-  // }
 
   exports.styles = styles;
   exports.images = images;
