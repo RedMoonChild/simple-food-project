@@ -11,6 +11,14 @@ $(function(){
     });
   });
 
-  const mixer = mixitup('.categories__dishes');
+  $('.slider').slick({
+    dots: true,
+    arrows: true,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 10000
+  });
 
+  
 });
+const mixer = mixitup('.categories__dishes');

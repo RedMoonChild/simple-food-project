@@ -2,6 +2,7 @@
 @import "fonts";
 @import "reset";
 @import "sprites";
+@import 'libs';
 @import "global";
 
 
@@ -497,11 +498,17 @@
 
   &__inner {
     max-width: 470px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     margin-left: auto;
     padding: 58px 0;
+    margin-right: 70px;
   }
-
+  
   &__title {
+    line-height: 1.3;
     margin-bottom: 30px;
     text-align: left;
   }
@@ -608,16 +615,16 @@
     position: relative;
     width: fit-content;
     margin-left: auto;
-    margin-top: -30px;
+    margin-top: -35px;
     display: block;
     transition: border-radius 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 
     &::before {
       content: "";
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       width: 24px;
       height: 24px;
       background-image: url('../images/sprite/sprite.svg#arrow');
@@ -642,7 +649,7 @@
 
     &:hover::before {
       filter: invert(47%) sepia(92%) saturate(1686%) hue-rotate(337deg) brightness(102%) contrast(101%);
-      transform: translateX(0);
+      transform: translate(0, -50%);
     }
 
     &:active {
@@ -658,21 +665,81 @@
 
 .review {
   &__inner {
+    text-align: center;
+  }
+
+  .slider {
+    position: relative;
+  }
+
+  .slick-dots {
     display: flex;
     justify-content: center;
-    gap: 0 40px;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .slick-dots button {
+    font-size: 0;
+    background-color: $gray;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+
+  li.slick-active button {
+    background-color: $orange-900;
+  }
+
+  .slick-arrow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0;
+    width: 34px;
+    height: 34px;
+    border: 3px solid $gray;
+    border-radius: 50%; 
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-60%, -50%);
+      width: 11px;
+      height: 18px;
+      background-image: url('../images/icons/button-arrow.svg');
+      @extend %bg-image;
+    }
+  }
+
+  .slick-prev {
+    left: 41%;
+    transform: translate(10%, 20%);
+  }
+
+  .slick-next{
+    left: 56%;
+    transform: translateY(20%);
+    &::before {
+      transform: translate(-40%, -50%) scaleX(-1);
+    }
   }
 
   &__img {
     border-radius: 50%;
+    display: inline-block !important;
+    vertical-align: middle;
+    margin-right: 40px;
   }
 
   &__quote {
+    text-align: left;
+    display: inline-block;
     max-width: 650px;
     padding: 0 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    vertical-align: middle;
   }
 }
 
@@ -706,10 +773,10 @@
   }
 
   &__author {
+    display: block;
     @extend %rubik-500;
     color: $orange-900;
     margin-bottom: 15px;
-
   }
 
   &__occupation {
@@ -731,6 +798,7 @@
   &__title {
     text-align: left;
     margin-bottom : 45px;
+    line-height: 1.3;
   }
 
   &__text {
